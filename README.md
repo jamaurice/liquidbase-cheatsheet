@@ -67,3 +67,7 @@ This cheatsheet provides a quick reference for common Liquibase commands, their 
   username=admin
   password=secret
   driver=org.postgresql.Driver
+
+Command Line Usage:
+```properties
+liquibase --defaultsFile=liquibase.properties update
