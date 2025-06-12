@@ -71,3 +71,85 @@ This cheatsheet provides a quick reference for common Liquibase commands, their 
 Command Line Usage:
 ```properties
 liquibase --defaultsFile=liquibase.properties update
+
+
+# Liquibase Common Commands Syntax
+
+Quick reference for the most frequently used Liquibase commands in syntax form, optimized for database schema migrations.
+
+## Core Commands
+
+- **Update**  
+  Apply all pending changesets from the changelog.  
+  ```bash
+  liquibase update --changelog-file=<file>
+  ```
+
+- **Rollback**  
+  Revert changesets to a specific tag.  
+  ```bash
+  liquibase rollback --tag=<tag>
+  ```
+
+- **Rollback-Count**  
+  Revert a specified number of changesets.  
+  ```bash
+  liquibase rollback-count --count=<number>
+  ```
+
+- **Update-Count**  
+  Apply a specified number of changesets.  
+  ```bash
+  liquibase update-count --count=<number>
+  ```
+
+- **Status**  
+  List pending changesets.  
+  ```bash
+  liquibase status [--verbose]
+  ```
+
+- **Validate**  
+  Check changelog for errors.  
+  ```bash
+  liquibase validate --changelog-file=<file>
+  ```
+
+- **Diff**  
+  Compare two databases for differences.  
+  ```bash
+  liquibase diff --reference-url=<jdbc-url> --url=<jdbc-url>
+  ```
+
+- **Generate-Changelog**  
+  Create a changelog from an existing database.  
+  ```bash
+  liquibase generate-changelog --changelog-file=<file>
+  ```
+
+- **Update-SQL**  
+  Generate SQL for pending changes without applying.  
+  ```bash
+  liquibase update-sql --changelog-file=<file> [--output-file=<file>]
+  ```
+
+- **Tag**  
+  Tag the current database state.  
+  ```bash
+  liquibase tag --tag=<tag>
+  ```
+
+## Configuration Parameters
+
+- `--changelog-file=<file>`: Path to changelog (e.g., `changelog.xml`, `changelog.yaml`).
+- `--url=<jdbc-url>`: Database URL (e.g., `jdbc:postgresql://localhost:5432/mydb`).
+- `--username=<user>`: Database username.
+- `--password=<pass>`: Database password.
+- `--driver=<driver-class>`: JDBC driver (e.g., `org.postgresql.Driver`).
+- Use `--defaultsFile=<file>` to load settings from `liquibase.properties`.
+
+## Notes
+
+- **Changelog Formats**: Supports XML, YAML, JSON, SQL.
+- **Prerequisites**: Install Liquibase CLI and include the JDBC driver in the classpath.
+- **Documentation**: [Liquibase Documentation](https://docs.liquibase.com/).
